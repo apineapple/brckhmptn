@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   <style>
+    /* The Modal (background) */
+    body{
+      -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none;
+color: white;
+background-color: black;
+    }
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top *//* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: black;
+  margin: auto;
+  padding: 20px;
+  width: 30%;
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+      input:focus {
+    outline:none !important;
+}
+      body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif;}
+      .container {
+      position: relative;
+      width: 100%;
+      }
+      .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color: black;
+      }
+      .grow { transition: all .2s ease-in-out; }
+      .grow:hover { transform: scale(1.1); color: #1883e4 !important; background-color: rgba(0,0,0,0) !important;}
+      @keyframes rainbow_animation {
+      0%,100% {
+      background-position: 0 0;
+      }
+      50% {
+      background-position: 100% 0;
+      }
+      }
+      * {
+      box-sizing: border-box;
+      }
+      .openBtn {
+      background: #f1f1f1;
+      border: none;
+      padding: 10px 15px;
+      font-size: 20px;
+      cursor: pointer;
+      }
+      .openBtn:hover {
+      background: #bbb;
+      }
+      .fullsearch {
+      height: 100%;
+      width: 100%;
+      display: none;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgba(0,0, 0, .9);
+      }
+      .fullsearch-content {
+      width: 50%;
+      text-align: center;
+      margin-top: 30px;
+      margin: auto;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      /* bring your own prefixes */
+      transform: translate(-50%, -50%);
+      }
+      .fullsearch .closebtn {
+      position: absolute;
+      top: 50px;
+      left: 100px;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+      }
+      .fullsearch input[type=text] {
+      padding: 15px;
+      font-size: 17px;
+      border: none;
+      float: left;
+      width: 80%;
+      background: white;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px; 
+      }
+      .fullsearch input[type=text]:hover {
+      background: #f1f1f1;
+      }
+      .fullsearch button {
+      float: left;
+      width: 20%;
+      padding: 15px;
+      background: white;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+      background-color: #1883e4;
+      color: #fee934;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; 
+      }
+      .fullsearch button:hover {
+color: #1883e4;
+      background-color: #fee934;
+      }
+  #merch img{
+      height: 300px;
+      width: auto;
+      }
+
+            #promo img{
+      height: 400px;
+      width: auto;
+      }
+      #image img{
+      width: 100%;
+      }
+   </style>
+     <style>
+* {
+  box-sizing: border-box;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   border: 1px black solid;
+   border-radius: 5px;
+   width: 500px;
+      position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+.mySlides {display: none}
+img {vertical-align: middle;
+width: 300px;
+height: auto;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+
+/* On hover, add a black background color with a little bit see
+
+/* The dots/bullets/indicators */
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.aat-mode {
+  background-color: #fee934;
+  color: black;
+}
+.dark-mode {
+  background-color: white;
+  color: #1883e4;
+}
+.iri-mode{
+  background-color: #020967;
+  color: #34b53a;
+}
+.ginger-mode {
+  color: #d80707;
+  background-color: white;
+}
+h1{
+  position: fixed;
+  cursor: pointer;
+         top: 50%;
+         left: 50%;
+         /* bring your own prefixes */
+         transform: translate(-50%, -50%);
+         font-size: 50px; 
+         font-family: Futura,Trebuchet MS,Arial,sans-serif; 
+         text-align: center;
+         -webkit-text-stroke-width: 0px;
+         -webkit-text-stroke-color: black; 
+         padding-left: 5px; padding-right: 5px; border-radius: 5px;
+}
+.modalmode{
+    background-color: rgba(256,256,256,0.05);
+}
+.brck{
+  color: #1883e4;
+}
+.hmptn{
+  color: #fee934;
+}
+.dot{
+  color: #d80707;
+}
+.blog{
+  color: white;
+}
+.black{
+  color: black;
+}
+.green{
+  color: #34b53a; 
+}
+</style>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <body class="reg-mode">
+      <div id="myfullsearch" class="fullsearch">
+         <span class="closebtn grow" id="closebtn" onclick="closeSearch()" title="Close fullsearch">close</span>
+         <div class="fullsearch-content">
+            <form action="">
+               <input type="text" autocomplete="off" placeholder="use keywords to filter the options" name="search">
+               <button type="submit">go</button>
+            </form>
+         </div>
+      </div>
+      <script>
+         function openSearch() {
+           document.getElementById("myfullsearch").style.display = "block";
+           document.getElementById("navymenu").style.display = "none";
+         }
+         
+         function closeSearch() {
+           document.getElementById("myfullsearch").style.display = "none";
+           document.getElementById("navymenu").style.display = "block";
+         }
+      </script>
+      <script>
+         $(document).ready(function(){
+          $("#searchmenu").click(function(){
+            $("#about").hide();
+          });
+         
+           $("#closebtn").click(function(){
+            $("#about").toggle();
+          });
+         
+         });
+      </script>
+      <script>
+         // place your images in this array
+         
+         var images = [
+         	'https://drive.google.com/uc?export=view&id=1MXYPZoFbnGkc3FNW5uT_ECxhSC_cgXYX',
+         
+         	'https://drive.google.com/uc?export=view&id=1mhjdWh7bSdjj5gVI0zybVeFZUhVD4TeV',
+         
+         	'https://drive.google.com/uc?export=view&id=1dILch7XJHqgpVmom04gR4tJIs_w433at',
+          ];
+
+          var hoverImages = [
+            'https://drive.google.com/uc?export=view&id=1ZUb2HhgCt43J1plgTQQk_B30FUWDnBJi',
+
+            'https://drive.google.com/uc?export=view&id=1Bcn5BFdJelz9GG_MqAzzzswA5zr4ZmgH',
+
+            'https://drive.google.com/uc?export=view&id=13WXqli7ySPxMscrnu39LedPFGO0es3B7'
+          ];
+
+          var description = [
+            "a",
+            "b",
+            "c"
+          ]
+         
+         
+         var imnum = 0;
+         var imnumb = 1;
+         var imnumc = 2;
+         var imnumd = 3;
+         
+         function getMerch(){
+         while (imnum < images.length) {
+         var imgn = images[ imnum ];
+         var imgnb = images[ imnumb ];
+         var imgnc = images[ imnumc];
+
+         var hovimgn =  hoverImages[ imnum ];
+         var hovimgnb =  hoverImages[ imnumb ];
+         var hovimgnc =  hoverImages[ imnumc];
+
+         document.write("<style> .grid-item {position: relative;}.hover {display: none; position: absolute;top: 0;left: 0;z-index: 99;}.grid-item:hover .hover {display: inline;}</style>");
+         
+         if (imnumd < images.length && imgn != null && imgnb != null && imgnc != null) { //all rows except the last one
+         
+           document.write("<style>.grid-containera {display: grid; width:20%; grid-template-columns: auto auto auto; margin-bottom: 25px;}.grid-item {text-align: center;} </style> <div class='grid-containera'><div class='grid-item' style='margin-right:25px;' id='mercha'><img src='"+imgn+"'><img class='hover' src='"+hovimgn+"'></div><div class='grid-item' style='margin-right:25px;' id='merchb'><img src='"+imgnb+"'><img class='hover' src='"+hovimgnb+"'></div><div class='grid-item'><img id='merchc' src='"+imgnc+"'><img class='hover' src='"+hovimgnc+"'></div></div>");
+         
+         }
+         
+         else if (imnumd >= images.length && imgn != null && imgnb != null && imgnc != null){ //the last row if it has 3 images
+         
+         	document.write("<style>.grid-containerb {display: grid; width:20%; grid-template-columns: auto auto auto; margin-bottom: 0px;}.grid-item {text-align: center;} </style> <div class='grid-containerb'><div class='grid-item' style='margin-right:25px;' id='merchd'><img src='"+imgn+"'><img class='hover' src='"+hovimgn+"'></div><div class='grid-item' style='margin-right:25px;' id='merche'><img src='"+imgnb+"'><img class='hover' src='"+hovimgnb+"'></div><div class='grid-item' id='merchf'><img src='"+imgnc+"'><img class='hover' src='"+hovimgnc+"'></div></div>");
+         
+         }
+         
+         else if (imnumd > images.length && imgn != null && imgnb != null && imgnc == null){ //the last row if it has 2 images
+         
+           document.write("<style>.grid-containerc {display: grid; width:20%; grid-template-columns: auto auto auto; margin-bottom: 0px;}.grid-item {text-align: center;} </style> <div class='grid-containerc'><div class='grid-item' style='margin-right:25px;' id='merchg'><img src='"+imgn+"'><img class='hover' src='"+hovimgn+"'></div><div class='grid-item' style='margin-right:25px;' id='merchh'><img src='"+imgnb+"'></div><div class='grid-item' id='merchi'></div></div>");
+         
+         }
+         
+         else if (imnumd > images.length && imgn != null && imgnb == null && imgnc == null){ //the last row if it has 1 images
+         
+          document.write("<style>.grid-containerd {display: grid; width:20%; grid-template-columns: auto auto auto;  margin-bottom: 0px;}.grid-item {text-align: center;} </style> <div class='grid-containerd'><div class='grid-item' style='margin-right:25px;'><img src='"+imgn+"'><img class='hover' src='"+hovimgn+"'></div><div class='grid-item' style='margin-right:25px;'></div><div class='grid-item'></div></div>");
+         }
+         
+         
+         
+         
+         
+           imnum=imnum+3;
+           imnumb= imnumb+3;
+           imnumc= imnumc + 3;
+           imnumd= imnumd + 3;
+         
+         }
+         }
+      </script>
+      <script>
+        var promo =[
+          'https://i.redd.it/r8weg0amsop11.jpg',
+         
+          'https://i.redd.it/r8weg0amsop11.jpg',
+         
+          'https://i.redd.it/r8weg0amsop11.jpg',
+        ];
+
+        var prodesc = [
+        'description',
+        'description',
+        'description'
+        ]
+
+        var pronum = 0;
+         var pronumb = 1;
+
+          function getPromo(){
+         while (pronum < promo.length) {
+          var promon = promo[ pronum ];
+          var descpromon = prodesc [pronum];
+
+
+         document.write("<style> .grid-item {position: relative;}.hover {display: none; position: absolute;top: 0;left: 0;z-index: 99;}.grid-item:hover .hover {display: inline;}</style>");
+
+          if (pronumb < promo.length) { //all rows except the last one
+         
+           document.write("<style>.promogrid-containera {display: grid; width:20%;}.grid-item {text-align: center;}</style><div class='promogrid-containera'><div class='grid-item' style='margin-bottom:25px;'><img src='"+promon+"'><h3>"+descpromon+"</h3></div></div>");
+         }
+else if (pronumb >= promo.length){
+document.write("<style>.promogrid-containera {display: grid; width:20%;}.grid-item {text-align: center;}</style><div class='promogrid-containera'><div class='grid-item' style='margin-bottom:0px;'><img src='"+promon+"'><h3>"+descpromon+"</h3></div></div>");
+}
+pronum = pronum+1;
+pronumb = pronumb+1;
+}
+}
+      </script>
+
+
+          <script>
+        var image =[
+          'https://i.redd.it/r8weg0amsop11.jpg',
+         
+          'https://i.redd.it/r8weg0amsop11.jpg',
+         
+          'https://i.redd.it/r8weg0amsop11.jpg',
+        ];
+
+        var imgnum = 0;
+         var imgnumb = 1;
+
+          function getImage(){
+         /*while (imgnum < image.length) {
+          var imagen = image[ imgnum ];
+
+
+         document.write("<style> .grid-item {position: relative;}.hover {display: none; position: absolute;top: 0;left: 0;z-index: 99;}.grid-item:hover .hover {display: inline;}</style>");
+
+          if (imgnumb < image.length) { //all rows except the last one
+         
+           document.write("<style>.imagegrid-containera {display: grid; width:20%;}.grid-item {text-align: center;}</style><div class='imagegrid-containera'><div class='grid-item'><img style='margin-bottom:25px;' src='"+imagen+"'></div></div>");
+         }
+else if (imgnumb >= image.length){
+document.write("<style>.imagegrid-containera {display: grid; width:20%;}.grid-item {text-align: center;}</style><div class='imagegrid-containera'><div class='grid-item'><img style='margin-bottom:0px;' src='"+imagen+"'></div></div>");
+}
+imgnum = imgnum+1;
+imgnumb = imgnumb+1;
+}*/
+document.write("<div class='row'><div class='column'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'></div><div class='column'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'></div>  <div class='column'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'></div><div class='column'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'><img src='https://i.redd.it/r8weg0amsop11.jpg' style='width:100%'></div></div>");
+}
+      </script>
+
+      
+      <!-- Sidebar/menu -->
+      <h1 id="title" onclick="darkmode()" id="about"><b class="brck" id="brck">brck</b><b class="hmptn" id="hmptn">hmptn</b><b class="dot" id="dot">.</b><b id="blog" class="blog">blog</b></h1>
+      <!-- Top menu on small screens -->
+      <header class="w3-container w3-top w3-xlarge w3-padding-10" id="navymenu" style="">
+         <a id="merchbutton" class="w3-button grow">merch</a>
+         <a id="promobutton" class="w3-button grow">promo</a>
+         <a id="imagebutton" class="w3-button grow">images</a>
+         <!--<div class="w3-right">
+            <a class="w3-button grow" class="openBtn" id="searchmenu" onclick="openSearch()">search</a> 
+         </div>-->
+      </header>
+      <div id="merch" style="display: none; position: fixed;
+         left: 50%;
+         top:50%;
+         /* bring your own prefixes */
+         transform: translate(-50%, -50%); overflow-y: scroll; height: 300px !important;">
+         <script>getMerch();</script>
+      </div>
+
+          <div id="promo" style="display: none; position: fixed;
+         left: 50%;
+         top:50%;
+         /* bring your own prefixes */
+         transform: translate(-50%, -50%); overflow-y: scroll; height: 400px !important;" class="scroll">
+         <script>getPromo();</script>
+      </div>
+
+               <div id="image" style="display: none; position: fixed;
+         left: 50%;
+         top:50%;
+         /* bring your own prefixes */
+         transform: translate(-50%, -50%); overflow-y: scroll; height: 400px !important;" class="scroll">
+         <script>getImage();</script>
+      </div>
+      <h5 class="grow" style="position:absolute;
+         bottom:5px;
+         right:20px; cursor: pointer;" id="myBtn">v. 0.47</h5>
+         <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" id="modal-content">
+    <p><b style="font-size: 18px;">new to version 0.47:</b><br>-image grid<br>-fixed the toggle<br>-dark mode</br>-more themes<br><br><b style="font-size: 18px;">coming soon:</b><br>-popup minishop<br>-searchbar<br>-by era sorting option<br>-more catagories</p>
+  </div>
+
+</div>
+
+<script>
+  function darkmode() {
+     if (document.body.classList.contains("reg-mode")){
+   document.getElementById("brck").classList.toggle("brck");
+   document.getElementById("hmptn").classList.toggle("hmptn");
+   document.getElementById("dot").classList.toggle("dot");
+   document.getElementById("blog").classList.toggle("blog");
+
+  document.body.classList.toggle("reg-mode");
+ // document.getElementsByTagName("h1").classList.toggle("dark-mode");
+  document.body.classList.toggle("aat-mode");
+   document.getElementById("title").classList.toggle("black");
+   document.getElementById("modal-content").classList.toggle("aat-mode");
+ }
+   else if (document.body.classList.contains("aat-mode")){
+    document.getElementById("title").classList.toggle("black");
+      document.body.classList.toggle("aat-mode");
+   document.getElementById("modal-content").classList.toggle("aat-mode");
+  
+    document.getElementById("title").classList.toggle("brck");
+      document.body.classList.toggle("dark-mode");
+      document.getElementById("modal-content").classList.toggle("dark-mode");
+ }
+ else if (document.body.classList.contains("dark-mode")){
+      document.getElementById("title").classList.toggle("brck");
+document.body.classList.toggle("dark-mode");
+      document.getElementById("modal-content").classList.toggle("aat-mode");
+
+document.body.classList.toggle("iri-mode");
+       document.getElementById("title").classList.toggle("green");
+      document.getElementById("modal-content").classList.toggle("iri-mode");
+ }
+ else if (document.body.classList.contains("iri-mode")) {
+       document.body.classList.toggle("iri-mode");
+       document.getElementById("title").classList.toggle("green");
+      document.getElementById("modal-content").classList.toggle("iri-mode");
+
+document.body.classList.toggle("ginger-mode");
+document.getElementById("title").classList.toggle("dot");
+document.getElementById("modal-content").classList.toggle("ginger-mode");
+ }
+
+ else if (document.body.classList.contains("ginger-mode")){
+  document.body.classList.toggle("ginger-mode");
+  document.getElementById("modal-content").classList.toggle("ginger-mode");
+document.getElementById("title").classList.toggle("dot");
+
+   document.getElementById("brck").classList.toggle("brck");
+   document.getElementById("hmptn").classList.toggle("hmptn");
+   document.getElementById("dot").classList.toggle("dot");
+   document.getElementById("blog").classList.toggle("blog");
+
+  document.body.classList.toggle("reg-mode");
+ }
+
+}
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+      <script>
+         $("#merchbutton").click(function(){
+          $("#promo").hide();
+           $("#image").hide();
+          if($("#merch").is(":visible")){
+            $("#merch").hide();
+            $("#title").show();
+          }
+          else {
+            $("#merch").show();
+            $("#title").hide();
+          }
+         });
+         $("#promobutton").click(function(){
+           $("#merch").hide();
+           $("#image").hide();
+            if($("#promo").is(":visible")){
+            $("#promo").hide();
+            $("#title").show();
+          }
+          else {
+            $("#promo").show();
+            $("#title").hide();
+          }
+         });
+           $("#imagebutton").click(function(){
+            $("#merch").hide();
+           $("#promo").hide();
+            if($("#image").is(":visible")){
+            $("#image").hide();
+            $("#title").show();
+          }
+          else {
+            $("#image").show();
+            $("#title").hide();
+          }
+         });
+      </script>
+   </body>
+</html>
