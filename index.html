@@ -279,6 +279,10 @@ height: auto;
     max-width: 100%;
   }
 }
+.reg-mode{
+  background-color: black !important;
+  color: white !important;
+}
 .aat-mode {
   background-color: #fee934;
   color: black;
@@ -557,8 +561,8 @@ document.write("<div class='row'><div class='column'><img src='https://i.redd.it
          <div id="myModal" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-content" id="modal-content">
-    <p><b style="font-size: 18px;">new to version 0.47:</b><br>-image grid<br>-fixed the toggle<br>-dark mode</br>-more themes<br><br><b style="font-size: 18px;">coming soon:</b><br>-popup minishop<br>-searchbar<br>-by era sorting option<br>-more catagories</p>
+  <div class="modal-content reg-mode" id="modal-content">
+    <p><b style="font-size: 18px;">new to version 0.47:</b><br>-image grid<br>-fixed the toggle<br>-dark mode</br>-more themes<br><br><b style="font-size: 18px;">coming soon:</b><br>-popup description<br>-searchbar<br>-by era sorting option<br>-more catagories</p>
   </div>
 
 </div>
@@ -566,13 +570,13 @@ document.write("<div class='row'><div class='column'><img src='https://i.redd.it
 <script>
   function darkmode() {
      if (document.body.classList.contains("reg-mode")){
+      document.getElementById("modal-content").classList.toggle("reg-mode");
    document.getElementById("brck").classList.toggle("brck");
    document.getElementById("hmptn").classList.toggle("hmptn");
    document.getElementById("dot").classList.toggle("dot");
    document.getElementById("blog").classList.toggle("blog");
 
   document.body.classList.toggle("reg-mode");
- // document.getElementsByTagName("h1").classList.toggle("dark-mode");
   document.body.classList.toggle("aat-mode");
    document.getElementById("title").classList.toggle("black");
    document.getElementById("modal-content").classList.toggle("aat-mode");
@@ -589,7 +593,7 @@ document.write("<div class='row'><div class='column'><img src='https://i.redd.it
  else if (document.body.classList.contains("dark-mode")){
       document.getElementById("title").classList.toggle("brck");
 document.body.classList.toggle("dark-mode");
-      document.getElementById("modal-content").classList.toggle("aat-mode");
+      document.getElementById("modal-content").classList.toggle("dark-mode");
 
 document.body.classList.toggle("iri-mode");
        document.getElementById("title").classList.toggle("green");
@@ -614,7 +618,7 @@ document.getElementById("title").classList.toggle("dot");
    document.getElementById("hmptn").classList.toggle("hmptn");
    document.getElementById("dot").classList.toggle("dot");
    document.getElementById("blog").classList.toggle("blog");
-
+document.getElementById("modal-content").classList.toggle("reg-mode");
   document.body.classList.toggle("reg-mode");
  }
 
